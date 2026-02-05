@@ -1,196 +1,155 @@
-Hair Fall Prediction System (Frontend + Backend + ML)
-🔹 STEP 0: Prerequisites (install once)
+▶️ How to Run This Project in VS Code
 
-Make sure these are installed on your laptop:
+This section explains the step-by-step process to set up and run the Hair Fall Prediction System on a local machine using Visual Studio Code.
 
-1️⃣ Install VS Code
+🧰 Prerequisites
 
-👉 https://code.visualstudio.com/
+Before running the project, ensure the following tools are installed:
 
-2️⃣ Install Python (3.9 or above)
+Visual Studio Code
 
-👉 https://www.python.org/downloads/
+Python 3.9+
 
-✔️ During install → check “Add Python to PATH”
+Node.js (LTS version)
 
-Check:
+npm
 
-python --version
+MongoDB Atlas account
 
-3️⃣ Install Node.js (LTS)
+Firebase account
 
-👉 https://nodejs.org/
+📂 Project Structure
+hairfall_prediction_system/
+│
+├── backend/        # FastAPI + ML Model
+├── frontend/       # React + Tailwind UI
+├── README.md
 
-Check:
-
-node -v
-npm -v
-
-4️⃣ Install MongoDB (OPTION 1 – easiest)
-
-Use MongoDB Atlas (cloud)
-👉 https://www.mongodb.com/atlas
-
-Create free cluster → copy connection URL
-
-(If you want local MongoDB, tell me)
-
-🔹 STEP 1: Open Project in VS Code
-
-Download the ZIP (already shared)
-
-Extract it
+⚙️ Backend Setup (Python + FastAPI + ML)
+Step 1: Open Project in VS Code
 
 Open VS Code
 
 Click File → Open Folder
 
-Select hairfall_prediction_system
+Select the project root folder
 
-You’ll see:
+Step 2: Open Terminal in VS Code
+Ctrl + `   (backtick)
 
-hairfall_prediction_system/
- ├── backend/
- ├── frontend/
- ├── README.md
-
-🔹 STEP 2: Backend Setup (FastAPI + ML)
-📌 Open Terminal in VS Code
-
-Ctrl + ~ (tilde key)
-
-2️⃣ Create Virtual Environment
+Step 3: Create Virtual Environment
 cd backend
 python -m venv venv
+
+
 Activate it:
+
 Windows
+
 venv\Scripts\activate
+
+
 Mac/Linux
+
 source venv/bin/activate
 
-You should see:
-
-(venv)
-
-3️⃣ Install Backend Requirements
+Step 4: Install Backend Dependencies
 pip install -r requirements.txt
 
-4️⃣ Setup Environment Variables
-
-Inside backend folder:
+Step 5: Configure Environment Variables
 
 Rename:
 
 .env.example → .env
 
-Open .env and paste:
 
-MONGODB_URI=mongodb+srv://<username>:<password>@cluster0.mongodb.net/hairfall_db
+Edit .env:
 
-(Replace with your MongoDB Atlas URL)
+MONGODB_URI=your_mongodb_atlas_connection_url
 
-5️⃣ Run Backend Server
+Step 6: Run Backend Server
 uvicorn main:app --reload
 
-✅ If successful, you’ll see:
 
-Uvicorn running on http://127.0.0.1:8000
+✅ Backend will start at:
 
-👉 Open browser:
+http://127.0.0.1:8000
+
+
+📘 API Documentation:
 
 http://127.0.0.1:8000/docs
 
-✔️ You should see Swagger API page
-
-✅ Backend + ML model is running
-
-🔹 STEP 3: Frontend Setup (React + Tailwind)
-📌 Open NEW Terminal (don’t close backend)
+🎨 Frontend Setup (React + Tailwind CSS)
+Step 1: Open New Terminal in VS Code
 cd frontend
+
+Step 2: Install Frontend Dependencies
 npm install
 
-(wait till node_modules installs)
+Step 3: Firebase Configuration
 
-2️⃣ Firebase Setup (VERY IMPORTANT)
+Create a Firebase project
 
-Go to 👉 https://console.firebase.google.com/
+Enable Email/Password Authentication
 
-Create New Project
+Create a Web App
 
-Enable:
+Copy Firebase configuration keys
 
-Authentication → Email/Password
-
-Create Web App
-
-Copy Firebase config
-
-3️⃣ Configure Frontend Environment
+Step 4: Setup Frontend Environment
 
 Rename:
 
 .env.example → .env
 
-4️⃣ Run Frontend
+
+Edit .env:
+
+VITE_API_BASE=http://localhost:8000
+VITE_FIREBASE_API_KEY=xxxx
+VITE_FIREBASE_AUTH_DOMAIN=xxxx
+VITE_FIREBASE_PROJECT_ID=xxxx
+VITE_FIREBASE_STORAGE_BUCKET=xxxx
+VITE_FIREBASE_MESSAGING_SENDER_ID=xxxx
+VITE_FIREBASE_APP_ID=xxxx
+
+Step 5: Run Frontend Server
 npm run dev
 
-You’ll see:
 
-Local: http://localhost:5173
-
-👉 Open in browser:
+✅ Frontend will start at:
 
 http://localhost:5173
 
-🎉 Your project is LIVE
+🔁 Application Flow
 
-🔹 STEP 4: How the Project Works (for Viva)
-🔐 Authentication
+User registers or logs in (Firebase Auth)
 
-Firebase → Login / Register / Forgot Password
+User enters lifestyle & health details
 
-📝 Registration Inputs
+Backend sends data to ML model
 
-Name
-Age
-Gender
-Mobile
-Occupation
-Stress level
-Sleep hours
-Family history
-Diet
-Hair fall level
+ML model predicts hair fall risk
 
-🤖 ML Prediction
+Result shown on dashboard
 
-Algorithm: Random Forest
+History saved in MongoDB
 
-Output:
+Doctor recommendation shown for high risk
 
-Low Risk
-Medium Risk
-High Risk
+❗ Common Issues & Fixes
+Issue	Solution
+Backend not starting	Activate virtual environment
+Prediction API error	Ensure backend is running
+Firebase auth error	Check .env keys
+Blank frontend page	Restart npm run dev
+✅ Successfully Running the Project
 
-Accuracy improves with more data
+If both servers are running:
 
-📊 Dashboard
+Backend → http://127.0.0.1:8000
 
-Prediction result
-Risk visualization
-Doctor recommendation (if high risk)
+Frontend → http://localhost:5173
 
-History tracking
-
-🔹 STEP 5: Doctor Appointment Logic
-
-If prediction = High Risk:
-✔️ Doctor card shown
-✔️ Doctor details from database/API
-✔️ Appointment option enabled
-
-Contributors
-
-Member 1: Vasam Arunteja
-Member 2: Pushpa Latha
-Member 3: Nithisha
+🎉 Hair Fall Prediction System is now live!
