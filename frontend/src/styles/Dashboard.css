@@ -1,0 +1,174 @@
+/* Dashboard.css */
+
+/* Root Dashboard Container */
+.dashboard {
+  padding: 30px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #f8fafc, #eef2f3);
+  min-height: 100vh;
+  color: #333;
+}
+
+/* Title */
+.dashboard h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 25px;
+  color: #2d3748;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+/* Charts Side by Side */
+.charts {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 25px;
+  margin-bottom: 40px;
+  flex-wrap: wrap; /* responsive fallback */
+}
+
+/* Individual Chart Card */
+.chart-card {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0px 8px 18px rgba(0,0,0,0.12);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  text-align: center;
+}
+
+.chart-card h3 {
+  margin-bottom: 15px;
+  color: #4a5568;
+}
+
+.chart-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 12px 24px rgba(0,0,0,0.18);
+}
+
+/* Prediction List */
+.pred-list {
+  background: #fff;
+  padding: 20px 25px;
+  border-radius: 16px;
+  box-shadow: 0px 6px 16px rgba(0,0,0,0.1);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.pred-list h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #4a5568;
+  text-align: center;
+}
+
+/* Prediction Items */
+.pred-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.pred-list li {
+  background: #f9fafb;
+  padding: 12px 15px;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  font-size: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.2s ease;
+}
+
+.pred-list li:hover {
+  background: #edf2f7;
+}
+
+/* Highlight Result Text */
+.pred-list b {
+  color: #2b6cb0;
+  font-weight: 600;
+}
+
+/* New: Page Layout with Sidebar */
+.dashboard-page-with-sidebar {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.dashboard-main-content {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Consultation advice card */
+.consultation-advice-card {
+  margin: 32px auto 16px auto;
+  max-width: 480px;
+  background: linear-gradient(95deg, #f8fafc 80%, #b2fefa 120%);
+  border: 2px solid #0ed2f7;
+  border-radius: 18px;
+  box-shadow: 0 2px 16px #0ed2f739;
+  padding: 20px 28px;
+  text-align: center;
+}
+.consultation-advice-card h4 {
+  margin-top: 0;
+  color: #112d4e;
+  font-weight: 700;
+  font-size: 1.3rem;
+}
+.consultation-advice-card p {
+  margin-bottom: 0;
+  font-size: 1.08rem;
+  color: #2d2d2d;
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+  .dashboard-page-with-sidebar {
+    flex-direction: column;
+    gap: 0;
+    padding: 10px;
+  }
+  .dashboard-main-content {
+    width: 100vw;
+  }
+}
+
+@media (max-width: 768px) {
+  .charts {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .chart-card {
+    width: 100%;
+    max-width: 480px;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard {
+    padding: 20px;
+  }
+
+  .dashboard h2 {
+    font-size: 1.5rem;
+  }
+
+  .pred-list {
+    padding: 15px 20px;
+  }
+
+  .pred-list h3 {
+    font-size: 1.25rem;
+  }
+}

@@ -1,0 +1,117 @@
+/* Container for forgot/reset screens */
+.forgot-container,
+.reset-container {
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f6fbfd;
+  padding: 2rem;
+}
+
+/* The form card styling */
+.forgot-form,
+.reset-form {
+  width: 100%;
+  max-width: 360px;
+  background: #fff;
+  padding: 36px 32px;
+  border-radius: 22px;
+  box-shadow: 0 4px 28px 0 rgba(14,210,247,0.12);
+  text-align: center;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  animation: fadeIn 0.7s cubic-bezier(.46,.03,.52,.96);
+}
+
+/* Headings */
+.forgot-form h2,
+.reset-form h2 {
+  color: #0ed2f7;
+  font-weight: 700;
+  font-size: 1.7rem;
+  margin-bottom: 24px;
+  letter-spacing: 0.5px;
+}
+
+/* Inputs */
+.forgot-form input,
+.reset-form input {
+  width: 100%;
+  padding: 14px 15px;
+  margin: 14px 0 20px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: 2px solid #d6f6fa;
+  outline: none;
+  background: #eefafe;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.forgot-form input:focus,
+.reset-form input:focus {
+  border-color: #0ed2f7;
+  background: #fff;
+  box-shadow: 0 0 9px #b2fefa3b;
+}
+
+/* Buttons */
+.forgot-form button,
+.reset-form button {
+  width: 100%;
+  background: linear-gradient(90deg,#2980b9 0%,#0ed2f7 100%);
+  border: none;
+  padding: 13px;
+  border-radius: 12px;
+  font-size: 17px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  letter-spacing: 0.7px;
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.forgot-form button:hover,
+.reset-form button:hover {
+  box-shadow: 0 6px 20px #0ed2f79c;
+  transform: scale(1.04);
+}
+
+/* Feedback/message style */
+.forgot-form p,
+.reset-form p {
+  margin-top: 20px;
+  font-size: 1.03em;
+  font-weight: 600;
+  color: #2980b9;
+  word-break: break-word;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive for mobile */
+@media (max-width: 600px) {
+  .forgot-form,
+  .reset-form {
+    padding: 22px 10px;
+    border-radius: 13px;
+  }
+  .forgot-form h2,
+  .reset-form h2 {
+    font-size: 1.2rem;
+  }
+  .forgot-form button,
+  .reset-form button {
+    font-size: 15px;
+    padding: 11px;
+  }
+}

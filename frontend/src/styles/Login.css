@@ -1,0 +1,253 @@
+/* Login page - polished professional style (large italic serif title) */
+
+/* Theme variables */
+:root{
+  --bg-page: #f6f8fa;
+  --card-bg: #ffffff;
+  --muted: #94a3b8;
+  --accent-1: #06b6d4;
+  --accent-2: #4f46e5;
+  --cta-grad: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+  --input-bg: #f4fbff;
+  --input-border: #e6eef8;
+  --shadow-lg: 0 30px 80px rgba(2,6,23,0.10);
+  --radius-lg: 14px;
+  --radius-pill: 999px;
+}
+
+/* Page layout */
+body { background: var(--bg-page); font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; color: #0f1720; }
+.login-container{
+  min-height: 100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding: 48px 20px;
+  position: relative;
+  overflow: hidden; /* keep decorative shapes inside viewport */
+}
+
+/* Card wrapper: left form + right CTA panel */
+.auth-split{
+  width: 100%;
+  max-width: 1100px;
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  background: var(--card-bg);
+  border-radius: 18px;
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  z-index: 2; /* sits above background shapes */
+  overflow: hidden;
+}
+
+/* Decorative abstract background shapes (soft, blurred, colorful) */
+.login-container::before,
+.login-container::after{
+  content: "";
+  position: absolute;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.login-container::before{
+  width: 780px;
+  height: 780px;
+  right: -200px;
+  top: -140px;
+  background: radial-gradient(circle at 25% 25%, rgba(79,70,229,0.42) 0%, rgba(99,102,241,0.28) 22%, rgba(16,185,129,0.2) 42%, transparent 62%), linear-gradient(180deg, rgba(79,70,229,0.28), rgba(16,185,129,0.06));
+  filter: blur(48px) saturate(1.25) contrast(1.02);
+  transform: rotate(-8deg);
+  border-radius: 26% 74% 26% 74% / 42% 28% 74% 56%;
+  opacity: 1;
+}
+
+.login-container::after{
+  width: 640px;
+  height: 640px;
+  left: -200px;
+  bottom: -140px;
+  background: radial-gradient(circle at 68% 32%, rgba(6,182,212,0.22) 0%, rgba(16,185,129,0.18) 28%, rgba(79,70,229,0.26) 55%, transparent 78%);
+  filter: blur(46px) saturate(1.15) contrast(1.02);
+  transform: rotate(12deg);
+  border-radius: 52% 28% 62% 38% / 38% 62% 28% 52%;
+  opacity: 1;
+}
+
+/* subtle noise overlay for texture */
+.login-container .bg-noise{ position:absolute; inset:0; z-index:1; opacity:0.04; background-image: radial-gradient(rgba(0,0,0,0.02) 1px, transparent 1px); background-size: 6px 6px; pointer-events:none }
+
+/* subtle inset border for the card to separate it from background */
+.auth-split::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 18px;
+  padding: 1px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(11,37,64,0.02));
+  -webkit-mask: linear-gradient(#fff, #fff) content-box, linear-gradient(#fff, #fff);
+  mask: linear-gradient(#fff, #fff) content-box, linear-gradient(#fff, #fff);
+  /* mask-composite has spotty support; provide a safe fallback by using background-clip as a simpler visual fallback */
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* LEFT - Sign in area */
+.auth-left{
+  padding: 56px 64px;
+  background: linear-gradient(180deg, rgba(255,255,255,1), rgba(250,251,255,1));
+}
+
+/* Brand (logo + name) */
+.brand{
+  display:flex;
+  gap:12px;
+  align-items:center;
+  margin-bottom: 18px;
+}
+.brand-img{ width:40px; height:40px; object-fit:contain; display:block; border-radius:8px; }
+.brand-title{ margin:0; font-weight:700; color:#0b2540; font-size:18px }
+
+/* Large serif italic heading (matching attachment) */
+.auth-left h1{
+  margin: 8px 0 14px;
+  color: #0b2540;
+  /* serif stack; use Playfair if loaded, otherwise system serif */
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+  font-style: italic;
+  font-weight: 700;
+  line-height: 1.04;
+  font-size: clamp(30px, 4.5vw, 48px); /* responsive large title */
+  letter-spacing: -0.6px;
+  margin-bottom: 8px;
+}
+
+/* subtitle */
+.auth-left p { color: var(--muted); margin: 0 0 20px; }
+
+/* Social row */
+.social-row{ display:flex; gap:14px; margin: 20px 0 22px; }
+.social-btn{
+  width:52px; height:52px; border-radius:50%;
+  display:inline-flex; align-items:center; justify-content:center;
+  cursor:pointer; border:none; font-weight:700; font-size:18px;
+  box-shadow: 0 6px 18px rgba(2,6,23,0.06);
+}
+.social-btn.google{ background:#dd4b39; color:#fff; }
+.social-btn.linkedin{ background:#0077b5; color:#fff; }
+
+/* OR separator */
+.or-sep{ display:flex; align-items:center; gap:12px; color: var(--muted); margin: 22px 0; font-weight:600; font-size:13px; text-transform:uppercase; letter-spacing:1px }
+.or-sep::before, .or-sep::after{ content:""; flex:1; height:1px; background:#eef2f6; }
+
+/* Inputs: big pill shape */
+.input-field{ width:100%; margin-bottom:16px; position:relative; }
+.input-field input{
+  width:100%;
+  padding:18px 22px;
+  border-radius: 28px;
+  border: 1px solid var(--input-border);
+  background: var(--input-bg);
+  font-size:16px;
+  outline: none;
+  color: #0f1720;
+  transition: box-shadow 150ms ease, border-color 150ms ease, transform 150ms ease;
+}
+.input-field input:focus{
+  box-shadow: 0 6px 22px rgba(11,37,64,0.06);
+  border-color: rgba(11,37,64,0.12);
+  transform: translateY(-2px);
+}
+
+/* inline eye toggle (password reveal) */
+.input-field .eye{ position:absolute; right:18px; top:12px; border:none; background:transparent; cursor:pointer }
+
+/* primary sign-in button */
+.signin-btn{
+  width:220px;
+  padding:12px 24px;
+  border-radius: 28px;
+  background: var(--cta-grad);
+  color:#fff;
+  border:none;
+  font-weight:700;
+  cursor:pointer;
+  box-shadow: 0 10px 30px rgba(19,139,198,0.18);
+  transition: transform 150ms ease, opacity 150ms ease;
+}
+.signin-btn:hover{ transform: translateY(-3px); opacity:0.98; }
+
+/* Forgot password link / small-link */
+.forgot-link{
+  display:inline-block;
+  margin-top:14px;
+  color: #0b69ff;
+  text-decoration: none;
+  font-weight:600;
+  padding: 6px 8px; /* small tap area */
+}
+.auth-left .forgot-link{ background: transparent; padding: 0; }
+
+/* RIGHT - Hero/CTA panel with gradient */
+.auth-right{
+  background: linear-gradient(180deg, #12b1a0, #2b9df8);
+  color: #fff;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding: 48px 28px;
+  gap: 10px;
+}
+.auth-right h2{ font-size: 2.2rem; margin: 0 0 6px; font-weight:700; }
+.auth-right p{ opacity:0.95; max-width:260px; margin:0 0 12px; }
+
+/* CTA on right panel and a pill-style forgot on right */
+.cta-btn{
+  margin-top:8px;
+  padding:10px 26px;
+  border-radius:999px;
+  border:none;
+  background:#fff;
+  color:#0b2540;
+  font-weight:700;
+  cursor:pointer;
+  box-shadow: 0 8px 24px rgba(2,6,23,0.12);
+}
+.auth-right .forgot-link{
+  margin-top:18px;
+  background: rgba(255,255,255,0.12);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.16);
+  padding: 8px 14px;
+  border-radius: 12px;
+  text-decoration: none;
+  display:inline-block;
+}
+
+/* small adjustments */
+.auth-left .brand { margin-bottom: 14px; }
+.brand-title { font-size: 16px; }
+
+/* Responsive: stack on small screens */
+@media (max-width: 920px){
+  .auth-split{ grid-template-columns: 1fr; }
+  .auth-right{ display: none; }
+  .login-container{ padding: 24px 16px; }
+}
+
+/* Smaller screens: reduce heading size and gaps */
+@media (max-width: 480px){
+  .auth-left { padding: 28px 18px; }
+  .auth-left h1{ font-size: 26px; }
+  .signin-btn{ width: 100%; }
+  .brand-img{ width:34px; height:34px; }
+}
+
+/* Accessibility / focus states */
+a:focus, button:focus, input:focus { outline: 3px solid rgba(11,37,64,0.06); outline-offset: 2px; }
+
+/* Optional: if you want the serif font closer to the screenshot, add this to your index.html head:
+<link href=\"https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,700&display=swap\" rel=\"stylesheet\">
+Then the heading will use Playfair Display (italic) instead of the fallback serif */

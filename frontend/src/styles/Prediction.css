@@ -1,0 +1,81 @@
+.prediction-form {
+  max-width: 450px;
+  margin: 50px auto;
+  padding: 25px 30px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  font-family: "Segoe UI", sans-serif;
+  transition: all 0.3s ease-in-out;
+}
+
+.prediction-form:hover {
+  transform: translateY(-2px);
+}
+
+.prediction-form h2 {
+  text-align: center;
+  font-size: 1.6rem;
+  margin-bottom: 20px;
+  color: #222;
+}
+
+.prediction-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.prediction-form label {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 5px;
+  font-size: 0.95rem;
+}
+
+.prediction-form input,
+.prediction-form select {
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border 0.2s;
+}
+
+.prediction-form input:focus,
+.prediction-form select:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 6px rgba(0, 123, 255, 0.2);
+}
+
+.prediction-form button {
+  background: #007bff;
+  color: #fff;
+  font-weight: bold;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.25s;
+}
+
+.prediction-form button:hover {
+  background: #0056b3;
+}
+
+.prediction-form button:disabled {
+  background: #999;
+  cursor: not-allowed;
+}
+
+.error-box {
+  margin-top: 15px;
+  padding: 10px;
+  background: #ffe6e6;
+  color: #cc0000;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  text-align: center;
+}

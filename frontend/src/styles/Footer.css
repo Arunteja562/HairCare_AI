@@ -1,0 +1,156 @@
+.footer {
+  background: black;
+  color: white;
+  padding-top: 30px;
+  padding-bottom: 0;
+  box-shadow: 0 0 32px whitesmoke inset;
+  border-radius: 0 0 22px 22px;
+  margin-top: 1px;
+  margin-bottom: 1px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  font-weight: bold;
+  font-style:oblique;
+
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+  max-width: 1120px;
+  margin: auto;
+  padding: 0 18px;
+  
+}
+
+.footer-col {
+  flex: 1 1 215px;
+  margin-bottom: 20px;
+  min-width: 180px;
+}
+
+.footer-col h3 {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  font-weight: 700;
+  color: white;
+  letter-spacing: 1px;
+}
+
+/* Services Dropdown animation */
+.footer-dropdown {
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.2s;
+}
+.footer-dropdown:focus,
+.footer-dropdown:hover {
+  color: white;
+}
+.arrow {
+  display: inline-block;
+  margin-left: 3px;
+  font-size: 0.65em;
+  font-weight: bold;
+  color: white;
+}
+.dropdown-show {
+  display: block;
+  animation: fadeInDrop 0.25s;
+}
+.dropdown-hide {
+  display: none;
+}
+@keyframes fadeInDrop {
+  from { opacity: 0; transform: translateY(-6px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+
+/* Quick Links & List Styling */
+.footer-links {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+.footer-links li {
+  margin: 5px 0;
+  
+  transition: background 0.2s;
+}
+.footer-links li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 100;
+  transition: color 0.2s;
+}
+.footer-links li a:hover {
+  color: #f70e0e;
+  text-decoration: underline;
+  font-weight: 50px;
+}
+
+/* Contact Details */
+.footer-col a {
+  color: whitesmoke;
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+.footer-col a:hover {
+  color: #f70e0e;
+}
+
+/* Social Icons */
+.footer-social {
+  margin-top: 13px;
+}
+.footer-social a {
+  display: inline-block;
+  margin-right: 14px;
+  margin-top: 6px;
+  font-size: 1.7rem;
+  color: white;
+  transition: color 0.18s, transform 0.18s;
+}
+.footer-social a:hover {
+  color: #f70e0e;
+  transform: scale(1.18);
+}
+
+/* Footer Bottom */
+.footer-bottom {
+  text-align: center;
+  padding: 15px 10 15px;
+  background: black;
+  border-radius: 0 0 16px 16px;
+  font-size: 1rem;
+  color: white;
+  margin-top: 1px;
+  margin-bottom: 1px;
+  font-weight: 50;
+  letter-spacing: 0.1px;
+}
+
+@media (max-width: 950px) {
+  .footer-content {
+    flex-direction: column;
+    gap: 2pc;
+    align-items: center;
+  }
+  .footer-col {
+    min-width: unset;
+    max-width: 370px;
+    margin-bottom: 34px;
+    text-align: center;
+  }
+}
+@media (max-width: 400px) {
+  .footer-col h3 {
+    font-size: 1.1rem;
+  }
+  .footer-social a {
+    font-size: 1.5rem;
+    margin-right: 10px;
+  }
+}

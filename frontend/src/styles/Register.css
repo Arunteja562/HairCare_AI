@@ -1,0 +1,223 @@
+:root{
+  --bg-dark: #071023; /* deep navy */
+  --bg-mid: #0b2438;
+  --accent-teal: #0ea5a4;
+  --accent-indigo: #2563eb;
+  --card-bg: rgba(255,255,255,0.95);
+  --muted: #6b7280;
+}
+
+/* Background with professional developer-focused gradient */
+.register-container {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: stretch;
+  position: relative;
+  padding: 48px;
+  color: #fff;
+  background: linear-gradient(120deg, var(--bg-dark) 0%, var(--bg-mid) 40%,rgba(14,165,164,0.03) 60%, rgba(37,99,235,0.02) 100%), radial-gradient(circle at 10% 20%, rgba(14,165,164,0.04), transparent 8%), radial-gradient(circle at 90% 80%, rgba(37,99,235,0.03), transparent 2%);
+  background-attachment: fixed;
+}
+
+/* subtle angled overlay for depth */
+.register-container::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.01) 0%, transparent 25%);
+  pointer-events: none;
+}
+
+/* Two column layout */
+.two-column {
+  gap: 40px;
+}
+
+.left-panel {
+  flex: 1 1 55%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.right-panel {
+  flex: 0 0 45%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Form Card */
+.register-card {
+   background: linear-gradient(90deg, #29c9e2, #a4cc2e);
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 520px;
+  text-align: center;
+  animation: fadeIn 0.8s ease-in-out;
+  font-family: "Segoe UI", sans-serif;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin: 20px;
+
+}
+
+.register-title {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: #2c3e50;
+  text-align: center;
+  font-weight: bold;
+  font-family: "initial";
+  font-style: italic;
+}
+
+.register-message {
+  margin-bottom: 15px;
+  font-weight: bold;
+  color: #e74c3c; /* red for errors */
+}
+
+/* Form styling */
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.register-form input,
+.register-form select {
+  padding: 12px 15px;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  font-size: 15px;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.register-form .row {
+  display: flex;
+  gap: 12px;
+}
+
+.register-form .row input,
+.register-form .row select{
+  flex: 1;
+}
+
+.register-form input:focus,
+.register-form select:focus {
+  border-color: #3498db;
+  box-shadow: 0px 0px 8px rgba(52, 152, 219, 0.5);
+  outline: none;
+}
+
+/* Submit Button */
+.register-btn {
+  background: linear-gradient(135deg, #3498db, #6dd5fa);
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 12px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.register-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.25);
+}
+
+/* Login Link */
+.login-link {
+  margin-top: 15px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.login-link span {
+  color: #3734db;
+  font-weight: bold;
+  font-size: 20px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.login-link span:hover {
+  color: #1d6fa5;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .left-panel {
+    display: none; /* hide image on small screens */
+  }
+
+  .right-panel {
+    flex: 1 1 100%;
+  }
+
+  .register-card {
+    padding: 25px;
+  }
+
+  .register-title {
+    font-size: 1.6rem;
+  }
+
+  .register-btn {
+    font-size: 15px;
+    padding: 10px;
+  }
+}
+
+/* Left panel image styling */
+.image-wrapper{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  max-width: 900px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.model-image{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.image-overlay{
+  position: absolute;
+  left: 24px;
+  bottom: 24px;
+  background: rgba(0,0,0,0.45);
+  color: #fff;
+  padding: 18px 22px;
+  border-radius: 10px;
+  max-width: 60%;
+}
+
+.image-overlay h3{
+  margin: 0 0 6px 0;
+  font-size: 1.4rem;
+}
+
+.image-overlay p{
+  margin:0;
+  font-size: 0.95rem;
+  line-height: 1.2;
+}

@@ -1,0 +1,15 @@
+body {
+  font-family: "Poppins", sans-serif;
+  background: #f8f9fa;
+}
+
+.welcome-page {
+  height: 100vh;
+  background: linear-gradient(to right, #4facfe, #00f2fe);
+  color: white;
+}
+
+form {
+  background: #fff;
+  border-radius: 12px;
+}
