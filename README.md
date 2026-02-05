@@ -1,60 +1,193 @@
-Getting Started with Create React App
-This project was bootstrapped with Create React App.
+Hair Fall Prediction System (Frontend + Backend + ML)
+🔹 STEP 0: Prerequisites (install once)
 
-Available Scripts
-In the project directory, you can run:
+Make sure these are installed on your laptop:
 
-npm start
-Runs the app in the development mode.
-Open http://localhost:3000 to view it in your browser.
+1️⃣ Install VS Code
 
-The page will reload when you make changes.
-You may also see any lint errors in the console.
+👉 https://code.visualstudio.com/
 
-npm test
-Launches the test runner in the interactive watch mode.
-See the section about running tests for more information.
+2️⃣ Install Python (3.9 or above)
 
-npm run build
-Builds the app for production to the build folder.
-It correctly bundles React in production mode and optimizes the build for the best performance.
+👉 https://www.python.org/downloads/
 
-The build is minified and the filenames include the hashes.
-Your app is ready to be deployed!
+✔️ During install → check “Add Python to PATH”
 
-See the section about deployment for more information.
+Check:
 
-npm run eject
-Note: this is a one-way operation. Once you eject, you can't go back!
+python --version
 
-If you aren't satisfied with the build tool and configuration choices, you can eject at any time. This command will remove the single build dependency from your project.
+3️⃣ Install Node.js (LTS)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except eject will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+👉 https://nodejs.org/
 
-You don't have to ever use eject. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Check:
 
-Learn More
-You can learn more in the Create React App documentation.
+node -v
+npm -v
 
-To learn React, check out the React documentation.
+4️⃣ Install MongoDB (OPTION 1 – easiest)
 
-Code Splitting
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+Use MongoDB Atlas (cloud)
+👉 https://www.mongodb.com/atlas
 
-Analyzing the Bundle Size
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+Create free cluster → copy connection URL
 
-Making a Progressive Web App
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+(If you want local MongoDB, tell me)
 
-Advanced Configuration
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+🔹 STEP 1: Open Project in VS Code
 
-Deployment
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+Download the ZIP (already shared)
 
-npm run build fails to minify
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Extract it
+
+Open VS Code
+
+Click File → Open Folder
+
+Select hairfall_prediction_system
+
+You’ll see:
+
+hairfall_prediction_system/
+ ├── backend/
+ ├── frontend/
+ ├── README.md
+
+🔹 STEP 2: Backend Setup (FastAPI + ML)
+📌 Open Terminal in VS Code
+
+Ctrl + ~ (tilde key)
+
+2️⃣ Create Virtual Environment
+cd backend
+python -m venv venv
+Activate it:
+Windows
+venv\Scripts\activate
+Mac/Linux
+source venv/bin/activate
+
+You should see:
+
+(venv)
+
+3️⃣ Install Backend Requirements
+pip install -r requirements.txt
+
+4️⃣ Setup Environment Variables
+
+Inside backend folder:
+
+Rename:
+
+.env.example → .env
+
+Open .env and paste:
+
+MONGODB_URI=mongodb+srv://<username>:<password>@cluster0.mongodb.net/hairfall_db
+
+(Replace with your MongoDB Atlas URL)
+
+5️⃣ Run Backend Server
+uvicorn main:app --reload
+
+✅ If successful, you’ll see:
+
+Uvicorn running on http://127.0.0.1:8000
+
+👉 Open browser:
+
+http://127.0.0.1:8000/docs
+
+✔️ You should see Swagger API page
+
+✅ Backend + ML model is running
+
+🔹 STEP 3: Frontend Setup (React + Tailwind)
+📌 Open NEW Terminal (don’t close backend)
+cd frontend
+npm install
+
+(wait till node_modules installs)
+
+2️⃣ Firebase Setup (VERY IMPORTANT)
+
+Go to 👉 https://console.firebase.google.com/
+
+Create New Project
+
+Enable:
+
+Authentication → Email/Password
+
+Create Web App
+
+Copy Firebase config
+
+3️⃣ Configure Frontend Environment
+
+Rename:
+
+.env.example → .env
+
+4️⃣ Run Frontend
+npm run dev
+
+You’ll see:
+
+Local: http://localhost:5173
+
+👉 Open in browser:
+
+http://localhost:5173
+
+🎉 Your project is LIVE
+
+🔹 STEP 4: How the Project Works (for Viva)
+🔐 Authentication
+
+Firebase → Login / Register / Forgot Password
+
+📝 Registration Inputs
+
+Name
+Age
+Gender
+Mobile
+Occupation
+Stress level
+Sleep hours
+Family history
+Diet
+Hair fall level
+
+🤖 ML Prediction
+
+Algorithm: Random Forest
+
+Output:
+
+Low Risk
+Medium Risk
+High Risk
+
+Accuracy improves with more data
+
+📊 Dashboard
+
+Prediction result
+Risk visualization
+Doctor recommendation (if high risk)
+
+History tracking
+
+🔹 STEP 5: Doctor Appointment Logic
+
+If prediction = High Risk:
+✔️ Doctor card shown
+✔️ Doctor details from database/API
+✔️ Appointment option enabled
 
 Contributors
 
