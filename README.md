@@ -153,3 +153,9 @@ Backend → http://127.0.0.1:8000
 Frontend → http://localhost:5173
 
 🎉 Hair Fall Prediction System is now live!
+
+Add your preferred contact details or links so visitors can reach you. Example:
+
+Email: vasamaruntej143@gmail.com
+LinkedIn: www.linkedin.com/in/vasam-arunteja2002-00ab11256
+GitHub: https://github.com/Arunteja562
